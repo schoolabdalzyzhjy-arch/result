@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<title>استعلام النتيجة</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+
+<style>
+*{
+  box-sizing:border-box;
+  font-family:"Cairo",sans-serif;
+}
+
+body{
+  margin:0;
+  background:#f2f4f6;
+  color:#002147;
+}
+
+/* الشريط العلوي */
+.top-bar{
+  height:55px;
+  background:#003b71;
+  position:relative;
+}
+.news{
+  position:absolute;
+  right:0;
+  top:0;
+  height:55px;
+  background:#ffc400;
+  padding:0 20px;
+  display:flex;
+  align-items:center;
+  font-weight:700;
+  font-size:18px;
+}
+
+/* الكارت الرئيسي */
+.container{
+  display:flex;
+  justify-content:center;
+  margin-top:80px;
+  flex-direction:column;
+  align-items:center;
+}
+
+.card{
+  width:430px;
+  background:#fff;
+  padding:35px 30px;
+  border-radius:18px;
+  text-align:center;
+  box-shadow:0 15px 35px rgba(0,0,0,.08);
+}
+
+.card p{
+  margin:10px 0;
+  font-weight:700; /* غليظ أكثر */
+  font-size:18px;  /* خط أكبر */
+}
+
+.title{
+  font-size:28px;
+  font-weight:800;
+  margin:20px 0 25px;
+}
+
+input{
+  width:100%;
+  padding:16px;
+  border-radius:10px;
+  border:1px solid #dcdcdc;
+  font-size:18px;  /* خط أكبر */
+  text-align:center;
+  margin-bottom:20px;
+}
+
+button{
+  width:100%;
+  background:#001e3c;
+  color:#fff;
+  border:none;
+  padding:16px;
+  border-radius:10px;
+  font-size:20px;   /* خط أكبر */
+  font-weight:700;  /* غليظ */
+  cursor:pointer;
+}
+
+button:hover{
+  background:#003060;
+}
+
+.note{
+  font-size:14px;
+  margin-top:18px;
+  font-weight:600;
+}
+
+/* بطاقة النتيجة بالشكل الأفقي مثل الصورة */
+#resultBox{
+  display:none; /* لن تظهر إلا عند الضغط على الزر */
+  width:95%;
+  max-width:500px;
+  margin-top:30px;
+  background:#fff;
+  border-radius:18px;
+  padding:20px;
+  box-shadow:0 10px 30px rgba(0,0,0,.08);
+  overflow:hidden;
+}
+
+.result-row{
+  display:flex;
+  border-bottom:1px solid #003b71;
+}
+
+.result-row:last-child{
+  border-bottom:none;
+}
+
+.result-row .label{
+  width:40%;
+  text-align:right;
+  font-weight:700; /* غليظ أكثر */
+  font-size:18px;
+  padding:12px;
+  border-left:3px solid #003b71;
+}
+
+.result-row .value{
+  width:60%;
+  text-align:left;
+  font-weight:700; /* غليظ أكثر */
+  font-size:18px;
+  padding:12px;
+}
+
+.print-btn{
+  width:100%;
+  margin-top:20px;
+  background:#2faa43;
+  color:#fff;
+  border:none;
+  padding:16px;
+  font-size:20px;
+  border-radius:10px;
+  cursor:pointer;
+}
+
+footer{
+  margin-top:50px;
+  text-align:center;
+  font-size:14px;
+}
+</style>
+</head>
+<body>
+
+<div class="top-bar">
+  <div class="news">آخر الأخبار</div>
+</div>
+
+<div class="container">
+  <div class="card">
+    <p>محافظة / المنوفية</p>
+    <p>إدارة / تلا التعليمية</p>
+    <p>مدرسة / محمد عبد العزيز حجي الثانوية بالقلشي </p>
+
+    <div class="title">استعلام النتيجة</div>
+
+    <input id="seatNumber" type="text" placeholder="أدخل رقم الجلوس">
+
+    <button id="showResultBtn">عرض النتيجة</button>
+
+    <div class="note">
+      
+    </div>
+  </div>
+
+  <!-- بطاقة النتيجة -->
+  <div id="resultBox">
+    <div class="result-row"><div class="label">رقم الجلوس</div><div class="value">31002221701098</div></div>
+    <div class="result-row"><div class="label">اسم الطالب</div><div class="value">أحمد السيد عبد الصمد السيد العرب</div></div>
+    <div class="result-row"><div class="label">الصف</div><div class="value">الأول</div></div>
+    <div class="result-row"><div class="label">النتيجة</div><div class="value">ناجح</div></div>
+    
+    <div class="result-row"><div class="label">لغة عربية</div><div class="value">95</div></div>
+    <div class="result-row"><div class="label">اللغة الإنجليزية</div><div class="value">94</div></div>
+    <div class="result-row"><div class="label">الرياضيات</div><div class="value">95</div></div>
+    <div class="result-row"><div class="label">العلوم المتكاملة</div><div class="value">98</div></div>
+
+    <div class="result-row"><div class="label">التاريخ</div><div class="value">97</div></div>
+    <div class="result-row"><div class="label">الفلسفة والمنطق</div><div class="value">51</div></div>
+    <div class="result-row"><div class="label">المجموع</div><div class="value">530</div></div>
+    <div class="result-row"><div class="label">اللغة الفرنسية</div><div class="value">97</div></div>
+
+    <div class="result-row"><div class="label">التربية الدينية</div><div class="value">83</div></div>
+    <div class="result-row"><div class="label">رئيس الكنترول</div><div class="value">ريناد العليمي</div></div>
+    <div class="result-row"><div class="label">مدير المدرسة</div><div class="value">مصطفى عسكر</div></div>
+
+    <button class="print-btn" onclick="window.print()">طباعة</button>
+  </div>
+
+</div>
+
+<footer>
+© 2026 جميع الحقوق محفوظة لدى **العلوى للبرمجيات**
+</footer>
+
+<script>
+const input = document.getElementById("seatNumber");
+const resultBox = document.getElementById("resultBox");
+const showBtn = document.getElementById("showResultBtn");
+
+showBtn.addEventListener("click", ()=>{
+  if(input.value === "31002221701098"){
+    resultBox.style.display = "block"; // يظهر فقط عند الضغط على الزر
+  } else {
+    alert("رقم الجلوس غير صحيح");
+    resultBox.style.display = "none";
+  }
+});
+</script>
+
+</body>
+</html>
